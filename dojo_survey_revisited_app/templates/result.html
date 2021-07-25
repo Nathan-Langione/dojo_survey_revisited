@@ -9,15 +9,15 @@
     <body>
         <div>
             <h1>Submitted Info</h1>
-            <p>Name: {{name}}</p>
-            <p>Dojo Location: {{dojo_location}} </p>
-            <p>Favorite Language: {{favorite_language}}</p>
-            <p>Gender: {{gender}}</p>
-            <p>Comment: {{comment}}</p>
-            {% if email != "True" %}
-            <P>We will not send you periodic emails!</P>
+            <p>Name: {{request.session.name}}</p>
+            <p>Dojo Location: {{request.session.location}} </p>
+            <p>Favorite Language: {{request.session.language}}</p>
+            <p>Gender: {{request.session.gender}}</p>
+            <p>Comment: {{request.session.comment}}</p>
+            {% if request.session.email == "True" %}
+                <P>We will send you periodic emails!</P>
             {% else %}
-            <P>We will send you periodic emails!</P>
+                <P>We will not send you periodic emails!</P>
             {% endif %}
         </div>  
 
